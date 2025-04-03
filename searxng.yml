@@ -1,0 +1,42 @@
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "Your SearXNG Instance"
+  privacypolicy_url: false
+  donation_url: false
+  contact_url: false
+  enable_metrics: false
+
+search:
+  autocomplete: "google"
+  default_lang: "en"
+  
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "{{ .Env.SEARXNG_SECRET }}"  # Will be replaced by Render's env var
+  base_url: "{{ .Env.SEARXNG_BASE_URL }}"  # Will be replaced by Render's env var
+  image_proxy: true
+  http_protocol_version: "1.1"
+
+ui:
+  static_use_hash: true
+  default_theme: simple
+
+engines:
+  - name: google
+    use_mobile_ui: true
+  - name: duckduckgo
+    disabled: false
+  - name: bing
+    disabled: false
+  - name: youtube
+    disabled: false
+    shortcut: yt
+  - name: reddit
+    disabled: false
+    
+outgoing:
+  request_timeout: 3.0
+  max_request_timeout: 10.0
