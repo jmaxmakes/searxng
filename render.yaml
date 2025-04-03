@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: searxng
+    env: docker
+    plan: starter # Choose appropriate plan (free or paid)
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SEARXNG_BASE_URL
+        value: https://your-app-name.onrender.com # Will update with actual URL later
+      - key: SEARXNG_SECRET
+        generateValue: true # Render will generate a random secret
+      - key: SEARXNG_CONTACT_URL
+        value: "" # Optional - your contact information
+      - key: PORT
+        value: 8080
