@@ -2074,16 +2074,18 @@ engines:
     engine: yahoo_news
     shortcut: yhn
 
-  - name: youtube
-    shortcut: yt
-    # You can use the engine using the official stable API, but you need an API
-    # key See: https://console.developers.google.com/project
-    #
-    # engine: youtube_api
-    # api_key: 'apikey' # required!
-    #
-    # Or you can use the html non-stable engine, activated by default
-    engine: youtube_noapi
+  # Primary engine with API
+- name: youtube_api
+  engine: youtube_api
+  api_key: 'AIzaSyA_i8YmxMEM6V5vM-4d9a9fHpmJWZya-Bs'
+  shortcut: yta
+  weight: 3
+
+# Backup engine without API
+- name: youtube
+  engine: youtube_noapi
+  shortcut: yt
+  weight: 1
 
   - name: dailymotion
     engine: dailymotion
